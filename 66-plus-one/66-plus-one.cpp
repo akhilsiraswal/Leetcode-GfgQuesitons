@@ -7,10 +7,10 @@ public:
         }
         
         if(!flag){
-            vector<int>result(digits.size()+1);
+            vector<int>result(digits.size()+1,0);
             result[0] = 1;
-            for(int i=1;i<=digits.size();i++) result[i] = 0;
             return result;
+            
         }
         
         for(int i=digits.size()-1;i>=0;i--){
