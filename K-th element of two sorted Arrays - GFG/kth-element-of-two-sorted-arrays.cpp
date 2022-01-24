@@ -8,15 +8,15 @@ class Solution{
     public:
     int kthElement(int arr1[], int arr2[], int n, int m, int k)
     {
-        vector<int>temp(n+m);
+        vector<int>temp(k);
         int p=0,q=0,r=0;
-        while(q<n && r<m  && p<n+m){
+        while(q<n && r<m  && p<k){
             if(arr1[q]<arr2[r]) temp[p++] = arr1[q++] ;
             else temp[p++] = arr2[r++];
         }
         
-        while(q<n) temp[p++] = arr1[q++];
-        while(r<m) temp[p++] = arr2[r++];
+        while(p<k && q<n) temp[p++] = arr1[q++];
+        while(p<k && r<m) temp[p++] = arr2[r++];
         return temp[k-1];
         
         
