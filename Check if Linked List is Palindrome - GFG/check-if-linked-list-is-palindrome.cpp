@@ -57,8 +57,8 @@ class Solution{
     {
         //Your code here
         int n = length(head);
+        if(n==1) return true;
         n/=2;
-        if(n==0) return true;
         Node *prev=NULL,*t=head;
         for(int i=1;i<=n;i++){
             prev=t;
