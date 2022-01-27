@@ -33,31 +33,52 @@ class Solution{
   public:
     //Function to check whether the list is palindrome.
     
+    int length(Node *head){
+        int count=0;
+        while(head){
+            head=head->next;count++;
+        }
+        return count;
+    }
     
-    
-    
+    Node *reverse(Node *head){
+        Node *curr = head,*prev=NULL,*next=NULL;
+        while(curr){
+            next=curr->next;
+            curr->next = prev;
+            prev= curr;
+            curr = next;
+        }
+        return prev;
+    }
     
     
     bool isPalindrome(Node *head)
     {
         //Your code here
-        stack<int>st;
-        Node *temp = head;
-        while(temp){
-             st.push(temp->data);temp=temp->next;
+        int n = length(head);
+        n/=2;
+        if(n==0) return true;
+        Node *prev=NULL,*t=head;
+        for(int i=1;i<=n;i++){
+            prev=t;
+            t=t->next;
+            
         }
+        prev->next = NULL;
         
-        temp = head;
-        while(temp){
-            if(st.top() !=temp->data) return false;
-            else{
-                st.pop();
-                temp=temp->next;
-            }
+        Node *temp = reverse(t);
+        
+        while(temp && head){
+            if(head->data!=temp->data) return false;
+        
+            temp=temp->next;
+            head=head->next;
         }
         return true;
         
-            
+        
+        
     }
 };
 
