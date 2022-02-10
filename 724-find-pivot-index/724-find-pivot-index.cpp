@@ -8,7 +8,7 @@ public:
         for(int i=nums.size()-2;i>=0;i--) right[i] = right[i+1]+nums[i];
         
         for(int i=0;i<nums.size();i++){
-            if(left[i] -nums[i] ==right[i]-nums[i]) return i;
+            if(left[i] == right[i]) return i;
         }
         return -1;
         
