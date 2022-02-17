@@ -1,3 +1,4 @@
+/*
 class Solution {
 public:
     vector<vector<int>>result;
@@ -21,5 +22,37 @@ public:
         
         fun(nums,0);
         return result;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<vector<int>>result;
+    
+    void BruteForce(vector<int>perms,vector<int>nums, vector<bool>visited){
+        if(perms.size() == nums.size()){
+            result.push_back(perms);
+        }
+        
+        for(int i=0;i<nums.size();i++){
+            if(visited[i]) continue;
+            
+            
+            perms.push_back(nums[i]);
+            visited[i] = true;
+            BruteForce(perms,nums,visited);
+            visited[i] = false;
+            perms.erase(perms.end()-1);
+            
+        }
+        
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<bool>visited(nums.size(),false);
+        vector<int>perms;
+        BruteForce(perms,nums,visited);
+        return result;
+        
     }
 };
