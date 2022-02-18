@@ -11,10 +11,10 @@ public:
         
         int i=0,n=num.size();
         while(i<n-1 && num[i] == '0') i++;
-        // string st = num.substr(i,n);
-        num.erase(0,i);
-        // return st;
-        return num==""?"0":num;
+        string st = num.substr(i,n);
+        // num.erase(0,i);
+        return st==""?"0":st;
+        // return num==""?"0":num;
         
     }
 };
