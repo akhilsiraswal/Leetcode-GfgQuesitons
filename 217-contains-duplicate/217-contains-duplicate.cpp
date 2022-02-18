@@ -5,9 +5,6 @@ public:
         for(auto i:nums){
             mp[i]++;
         }
-        for(auto i:mp){
-            if(i.second>1) return true;
-        }
-        return false;
+       return !(mp.size() == nums.size());
     }
 };
