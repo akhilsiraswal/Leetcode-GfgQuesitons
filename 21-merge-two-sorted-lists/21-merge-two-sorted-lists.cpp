@@ -10,7 +10,8 @@
  */
 class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+  
+  ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         ListNode*result=NULL,*temp=result;
         while(list1 && list2){
             if(list1->val < list2->val){
@@ -63,4 +64,9 @@ public:
         
         return result;
     }
+
+/*ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+    
+}
+*/
 };
