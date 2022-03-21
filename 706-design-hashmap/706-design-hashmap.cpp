@@ -1,21 +1,20 @@
 class MyHashMap {
 public:
-    unordered_map<int,int>result;
+    int map[1000001];
     MyHashMap() {
-        
+        fill(map,map+1000001,-1);
     }
     
     void put(int key, int value) {
-        result[key] = value;
+        map[key] = value;
     }
     
     int get(int key) {
-        if(result.find(key) == result.end()) return -1;
-        return result[key];
+        return map[key];
     }
     
     void remove(int key) {
-        result.erase(key);
+        map[key] = -1;
     }
 };
 
