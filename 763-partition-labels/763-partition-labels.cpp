@@ -1,5 +1,6 @@
 class Solution {
 public:
+    /*
     vector<int> partitionLabels(string s) {
         int n = s.length();
         vector<int>result;
@@ -9,7 +10,6 @@ public:
         }
         
         for(int i=0;i<n;){
-            // int idx = last[s[i]]-i+1;
             string subst  = s.substr(i,last[s[i]]-i+1);
             
             int max_i =last[subst[0]];
@@ -19,18 +19,36 @@ public:
             }
             int mx = max_i-i+1;
             result.push_back(mx);
-            // subst = s.substr(i,max_i-i+1);  
             i = max_i+1;
             
-            // cout<<subst<<endl;
             
         }
         return result;
         
-        // return {};
         
         
         
         
     }
+    */
+    
+     vector<int> partitionLabels(string s) {
+         int n = s.length();
+         vector<int>result;
+         unordered_map<char,int>last;
+        
+         for(int i=0;i<n;i++) last[s[i]]=i;
+         
+         int start=0,lst=0;
+         for(int i=0;i<n;i++){
+              lst = max(last[s[i]],lst);
+             if(lst == i){
+                 int nm = lst-start+1;
+                 result.push_back(nm);
+                 start = lst+1;
+             }
+         }
+         return result;
+         
+     }
 };
