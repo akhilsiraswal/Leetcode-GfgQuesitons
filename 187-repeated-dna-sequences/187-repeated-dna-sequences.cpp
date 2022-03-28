@@ -17,18 +17,23 @@ public:
      vector<string> findRepeatedDnaSequences(string s) {
          
          unordered_map<string,int>mp;
-         vector<string>res;
-         if(s.length()<10) return res;
+         vector<string>result;
+         unordered_set<string>res;
+         if(s.length()<10) return result;
          for(int i=0;i<=s.length()-10;i++){
              string st = s.substr(i,10);
              mp[st]++;
              if(mp[st]>1){
-                 if(find(res.begin(),res.end(),st)==res.end()){
-                     res.push_back(st);
-                 }
+                 res.insert(st);
+                 // if(find(res.begin(),res.end(),st)==res.end()){
+                 //     res.push_back(st);
+                 // }
              }
          }
-         return res;
+         
+         for(auto i:res) result.push_back(i);
+         
+         return result;
          
          
      }
