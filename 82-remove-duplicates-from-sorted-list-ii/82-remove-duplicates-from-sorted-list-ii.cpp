@@ -10,6 +10,7 @@
  */
 class Solution {
 public:
+   /*
     ListNode* deleteDuplicates(ListNode* head) {
         if(!head || !head->next) return head;
         ListNode*prev=NULL,*current=head,*next = head->next;
@@ -37,4 +38,33 @@ public:
         return head;
         
     }
+    */
+     ListNode* deleteDuplicates(ListNode* head) {
+         if(!head) return head;
+         ListNode*prev=NULL,*current=head,*next=head->next;
+         
+         while(current){
+             while( next && next->val == current->val) next=next->next;
+             if(current->next!=next){
+                 if(prev){
+                     prev->next = next;
+                 }else{
+                    head=next;
+                     
+                 }
+                 current=next;
+                if(next) next=next->next;
+                 
+             }else{
+                 prev = current;
+                 current=current->next;
+                 if(next) next=next->next;
+             }
+             
+             
+             
+         }
+         return head;
+         
+     }
 };
