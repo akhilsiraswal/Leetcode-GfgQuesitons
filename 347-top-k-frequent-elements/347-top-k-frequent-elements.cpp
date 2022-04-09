@@ -14,7 +14,7 @@ public:
         
         sort(temp.begin(),temp.end(),cmp);
         vector<int>result;
-        for(int i=0;i<k && i<nums.size() ;i++) result.push_back(temp[i].first);
+        for(int i=0;i<k ;i++) result.push_back(temp[i].first);
         
         return result;
         
