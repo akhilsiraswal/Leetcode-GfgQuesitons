@@ -1,5 +1,6 @@
 class Solution {
 public:
+    /*
     int wiggleMaxLength(vector<int>& nums) {
         int temp1[nums.size()],temp2[nums.size()];
         temp1[0]=1;
@@ -20,5 +21,18 @@ public:
         
         return max(temp1[nums.size()-1],temp2[nums.size()-1]);
         
+    }
+    */
+    
+    // Another solution...  from discussions :hehe...
+    
+    int wiggleMaxLength(vector<int>& nums) {
+         int up=1,down=1;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]>nums[i-1]) up=down+1;
+            else if(nums[i]<nums[i-1] ) down=up+1;
+            
+        }
+        return max(up,down);
     }
 };
