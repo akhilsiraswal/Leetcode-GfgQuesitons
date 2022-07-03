@@ -1,25 +1,23 @@
 class Solution {
 public:
     double myPow(double x, int n) {
+        double answer=1;
+        long long nn = n;
+        if(nn<0) nn*=-1;
+        while(nn){
+            if(nn%2 == 0) {
+               x*=x;
+                nn/=2;
+            }else{
+                answer*=x;
+                nn--;
+            }
+        }
+        if(n<0) return 1/answer;
+        else        return answer;
         
-        return pow(x,n);
-//         // return 1;
-//         if(x==1) return 1;
-//         double answer=1,sign=1;
         
-//         if(n<0){
-//             sign=-1;
-//             n=-n;
-//         }
         
-//         while(n-- && answer<=10000 ){
-//             answer*=x;
-//         }
-//         if(answer>10000) {
-//             if(sign==-1) return 0;
-//         }
-        
-//         if(sign== -1) answer  = 1/answer;
-//         return answer;
+
     }
 };
