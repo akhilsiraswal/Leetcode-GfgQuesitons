@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    
+    /*
     int length(ListNode * head){
         if(!head) return 0;
         
@@ -27,6 +27,22 @@ public:
         
         // ListNode* temp = head;
         
+        
+    }
+    */
+    
+    int length(ListNode * head){
+        if(!head) return 0;
+        return 1+ length(head->next);
+    }
+    ListNode* middleNode(ListNode* head) {
+        ListNode *node=head;
+        int n = length(head);
+            n = n/2 + 1 ;
+        for(int i=1;i<n && node!=NULL ;i++){
+            node = node->next;
+        }
+        return node;
         
     }
 };
