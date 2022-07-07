@@ -8,6 +8,8 @@
  */
 class Solution {
 public:
+/*
+    
     bool hasCycle(ListNode *head) {
         if(!head) return false;
         ListNode*slow=head,*fast=head;
@@ -16,6 +18,19 @@ public:
             fast=fast->next;
             if(fast) fast=fast->next;
             if(fast && fast == slow)return true;
+        }
+        return false;
+    }
+*/
+    bool hasCycle(ListNode *head) {
+        if(!head) return false;
+        ListNode *prev=head,*curr = head->next;
+        
+        while(curr){
+            if(curr == prev) return true;
+            curr = curr->next;
+            prev = prev->next;
+            if(curr) curr = curr->next;
         }
         return false;
     }
