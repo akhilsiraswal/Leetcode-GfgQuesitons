@@ -33,6 +33,7 @@ public:
     }
     
     */
+    /*
     
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         
@@ -49,6 +50,21 @@ public:
         return NULL;
         
         
+    }
+    
+    */
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        unordered_map<ListNode *,int>mp;
+        while(headA){
+            mp[headA] = headA->val;
+            headA=headA->next;
+        }
+        
+        while(headB){
+            if(mp[headB]) return headB;
+            headB = headB->next;
+        }
+        return NULL;
     }
     
     
